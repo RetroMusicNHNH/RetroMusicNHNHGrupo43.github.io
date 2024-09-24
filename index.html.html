@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neoliberalismo y Globalización: Estrategias del Capitalismo Moderno</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --accent-color: #e74c3c;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        nav {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        main {
+            padding: 2rem 0;
+        }
+        .section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--background-color);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--secondary-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--secondary-color);
+        }
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--secondary-color);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--secondary-color) transparent transparent;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -15px;
+        }
+        .column {
+            flex: 1;
+            padding: 15px;
+            min-width: 250px;
+        }
+        .feature-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        #comentarios {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #nuevo-comentario {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .comentario {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .comentario:hover {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            .left::after, .right::after {
+                left: 15px;
+            }
+            .right {
+                left: 0%;
+            }
+            .column {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Neoliberalismo y Globalización</h1>
+            <p>Estrategias del Capitalismo Moderno</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#critica">Crítica</a></li>
+                <li><a href="#actualidad">Actualidad</a></li>
+                <li><a href="#comentarios">Comentarios</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="historia" class="section">
+            <h2>Historia del Neoliberalismo y la Globalización</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1930s - 1940s</h3>
+                        <p>Surgimiento de las ideas neoliberales como respuesta al keynesianismo y las políticas intervencionistas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1970s</h3>
+                        <p>Crisis del petróleo y estanflación. Auge del neoliberalismo con Thatcher en Reino Unido y Reagan en EE.UU.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1980s - 1990s</h3>
+                        <p>Caída del muro de Berlín. Intensificación de la globalización y expansión del libre comercio.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2000s - Presente</h3>
+                        <p>Crisis financiera de 2008. Cuestionamientos al modelo neoliberal y búsqueda de alternativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="section">
+            <h2>Características del Neoliberalismo y la Globalización</h2>
+            <div class="row">
+                <div class="column">
+                    <div class="feature-box">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Liberalización económica</h3>
+                        <p>Promoción del libre mercado y reducción de la intervención estatal en la economía.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="feature-box">
+                        <i class="fas fa-globe"></i>
+                        <h3>Integración global</h3>
+                        <p>Intensificación de las conexiones económicas, políticas y culturales a nivel mundial.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="feature-box">
+                        <i class="fas fa-building"></i>
+                        <h3>Privatización</h3>
+                        <p>Transferencia de empresas y servicios públicos al sector privado.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="feature-box">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Desregulación</h3>
+                        <p>Eliminación o reducción de regulaciones gubernamentales en diversos sectores económicos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="critica" class="section">
+            <h2>Crítica Histórica</h2>
+            <p>El neoliberalismo y la globalización han sido objeto de intenso debate académico y político. Sus defensores argumentan que estas políticas han llevado a un crecimiento económico sin precedentes y a la reducción de la pobreza a nivel global. Sin embargo, los críticos señalan varios problemas:</p>
+            <ul>
+                <li>Aumento de la desigualdad económica dentro de los países y entre naciones.</li>
+                <li>Precarización laboral y erosión de los derechos de los trabajadores.</li>
+                <li>Concentración del poder económico en corporaciones multinacionales.</li>
+                <li>Pérdida de soberanía nacional en favor de instituciones financieras internacionales.</li>
+                <li>Impacto negativo en el medio ambiente debido a la explotación intensiva de recursos.</li>
+            </ul>
+            <p>Es crucial analizar cómo estas políticas han afectado a diferentes grupos sociales y regiones del mundo a lo largo del tiempo, considerando tanto los beneficios como los costos asociados.</p>
+        </section>
+
+        <section id="actualidad" class="section">
+            <h2>Importancia en la Actualidad</h2>
+            <p>El debate sobre el neoliberalismo y la globalización sigue siendo central en las discusiones políticas y económicas contemporáneas. Eventos recientes han puesto de manifiesto tanto las fortalezas como las debilidades del sistema económico global:</p>
+            <ul>
+                <li>La crisis financiera de 2008 reveló las vulnerabilidades de los mercados financieros desregulados.</li>
+                <li>La pandemia de COVID-19 ha destacado las desigualdades existentes y la necesidad de sistemas de salud pública robustos.</li>
+                <li>El cambio climático plantea desafíos que requieren cooperación global y regulación de las actividades económicas.</li>
+                <li>El auge de las grandes corporaciones tecnológicas ha suscitado preocupaciones sobre monopolios y privacidad de datos.</li>
+            </ul>
+            <p>Actualmente, se discuten alternativas y reformas para abordar estos desafíos, incluyendo propuestas para una "globalización justa" y un "nuevo contrato social" que equilibre el crecimiento económico con la sostenibilidad y la equidad.</p>
+        </section>
+
+        <section id="comentarios" class="section">
+            <h2>Comentarios</h2>
+            <div id="comentarios-existentes"></div>
+            <form id="formulario-comentarios">
+                <textarea id="nuevo-comentario" rows="4" placeholder="Comparte tu opinión sobre el tema..."></textarea>
+                <button type="submit">Enviar Comentario</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Estudio sobre Neoliberalismo y Globalización. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto de scroll para la barra de navegación
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Manejo de comentarios
+        document.getElementById('formulario-comentarios').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var comentario = document.getElementById('nuevo-comentario').value;
+            if (comentario.trim() !== '') {
+                var nuevoComentario = document.createElement('div');
+                nuevoComentario.className = 'comentario';
+                nuevoComentario.innerHTML = `
+                    <p>${comentario}</p>
+                    <small>Publicado el ${new Date().toLocaleString()}</small>
+                `;
+                document.getElementById('comentarios-existentes').appendChild(nuevoComentario);
+                document.getElementById('nuevo-comentario').value = '';
+            }
+        });
+
+        // Animación suave al hacer scroll a las secciones
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
